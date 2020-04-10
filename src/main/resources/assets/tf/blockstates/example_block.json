@@ -1,0 +1,6 @@
+{
+  "variants": {
+    "": { "model": "tf:block/example_block" }
+  }
+
+}
