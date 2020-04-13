@@ -1,5 +1,5 @@
 {
-  "item.tf.example_item": "Example Item",
-
-  "itemGroup.theseFuckers": "These Fuckers"
+  "itemGroup.theseFuckers": "These Fuckers",
+  "block.tf.goo_block": "Goo Block",
+  "item.tf.goo": "Goo"
 }

@@ -1,0 +1,5 @@
+{
+  "variants": {
+    "": { "model": "tf:block/goo_block" }
+  }
+}

@@ -1,9 +1,11 @@
 package com.geoluread.thesefuckers;
 
-import com.geoluread.thesefuckers.util.RegistryHandler;
+import com.geoluread.thesefuckers.init.ModBlocks;
+import com.geoluread.thesefuckers.init.ModItems;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.common.MinecraftForge;
+import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
@@ -18,10 +20,13 @@ public class TheseFuckers
     public static final String MOD_ID = "tf";
 
     public TheseFuckers() {
-        FMLJavaModLoadingContext.get().getModEventBus().addListener(this::setup);
-        FMLJavaModLoadingContext.get().getModEventBus().addListener(this::doClientStuff);
+        final IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
+        modEventBus.addListener(this::setup);
+        modEventBus.addListener(this::doClientStuff);
 
-        RegistryHandler.init();
+
+        ModBlocks.BLOCKS.register(modEventBus);
+        ModItems.ITEMS.register(modEventBus);
 
         MinecraftForge.EVENT_BUS.register(this);
     }
@@ -35,7 +40,7 @@ public class TheseFuckers
     public static final ItemGroup TABS = new ItemGroup("theseFuckers") {
         @Override
         public ItemStack createIcon() {
-            return new ItemStack(RegistryHandler.EXAMPLE_ITEM.get());
+            return new ItemStack(ModBlocks.GOO_BLOCK.get());
         }
     };
 
